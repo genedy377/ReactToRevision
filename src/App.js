@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+// import logo from './logo.svg';
+// prepare to create a profile website for it 
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+import './App.css';
+import Person from './Person/Person'
+
+class App extends Component {
+  state = {
+    persons: [
+      { name: 'Eslam', age: '6' },
+      { name: 'Ahmed', age: '179' },
+      { name: 'Genedy', age: '78' }
+    ],
+    Date: new Date()
+  }
+
+  render() {
+    return (
+      <div className="App">
+
+        <Person
+          name={this.state.persons[0].name}
+          age={this.state.persons[0].age}
+          Date={this.state.Date.toLocaleTimeString()}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+        </Person>
+
+        {/* <Person name={this.state.persons[1].name} age={this.state.persons[1].age}></Person>
+      <Person name={this.state.persons[2].name} age={this.state.persons[2].age}></Person> */}
+
+      </div>
+    )
+  }
+
 }
 
 export default App;
